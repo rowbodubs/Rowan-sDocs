@@ -42,3 +42,5 @@ If you figure out how to stop the quest from going to sleep when you take it off
 
 The B button opens the menu while the A button is the trigger.
 
+NOTE: if the computer starts with the usb-c cable already plugged in, link might not work. If meta starts with the usb-c cable already plugged in, link might not work.
+
