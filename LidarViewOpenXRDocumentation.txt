@@ -1,0 +1,44 @@
+open meta horizon link
+connect headset
+use link cable, 
+
+if you get a "device not recognized error": 
+click the error and hit the reset button if it's there or just close, 
+use user rights to get admin priv, 
+open device manager, 
+find "unknown usb device (port reset failed)", 
+right click it, properties, change settings, driver, uninstall device, unplug and replug.
+
+Make sure the headset wakes up when you put it on
+your HMD should appear active in MHL
+do device setup if you haven't already
+in the hmd, enable link
+start steamVR
+put on the HMD and make sure you see Steam home.
+
+If you don't see Steam home and SteamVR says something about runtimes or whatever, you may have to restart the computer and HMD.
+
+goto steamVR hamburger, 
+open settings>openXR, 
+make sure active runtime is oculus. if not: 
+got to MHL>settings>general, 
+scroll to the bottom and hit the "Seta Meta Horizon Link as active". 
+reopen SteamVR settings (make sure it refreshes by switching to a different settings tab and back) and check the the runtime is set to oculus.
+
+Get our build of lidarview
+check the folder LidarView-5.2.0\bin\paraview-6.0\plugins\XRInterface.
+Make sure there are a bunch of jsons including "pv_openxr_actions.json" and "pv_openxr_binding_khr_simple_controller.json"
+If those are not present, find them somewhere (you can probably use the ones from an installation of Paraview).
+Check the folder LidarView-5.2.0\bin make sure there is a xerces-c-3.2.1.dll and libpdal_reader_e57.dll
+If those aren't there ask Simon
+
+select at the top of LidarView tools>manage plugins, scroll all the way down and select XRInterface, load selected.
+in the new XRInterface section on the right, makesure OpenXR is the active runtime.
+Hover the mouse over "send to xr"
+put the headset on
+click "send to xr" while wearing the headset
+if you send to xr while the headset is asleep, it won't work. IF you take the headset off, you need to quit xr and send to xr again.
+If you figure out how to stop the quest from going to sleep when you take it off I commend you (The "Bypass Proximity Sensor Check" option in OculusDebugTool.exe turns itself back off)
+
+The B button opens the menu while the A button is the trigger.
+
