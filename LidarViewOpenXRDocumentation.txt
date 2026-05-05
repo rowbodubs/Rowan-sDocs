@@ -1,6 +1,5 @@
 open meta horizon link
-connect headset
-use link cable, 
+connect headset using link cable
 
 if you get a "device not recognized error": 
 click the error and hit the reset button if it's there or just close, 
@@ -16,21 +15,30 @@ in the hmd, enable link
 start steamVR
 put on the HMD and make sure you see Steam home.
 
-If you don't see Steam home and SteamVR says something about runtimes or whatever, you may have to restart the computer and HMD.
+If the headset is stuck loading (pinkish void with meta logo and three dots at the bottom), restart the headset:
+hold the power button and select restart in the menu
 
 goto steamVR hamburger, 
 open settings>openXR, 
-make sure active runtime is oculus. if not: 
+make sure active runtime is oculus. 
+
+if not: 
 got to MHL>settings>general, 
 scroll to the bottom and hit the "Seta Meta Horizon Link as active". 
 reopen SteamVR settings (make sure it refreshes by switching to a different settings tab and back) and check the the runtime is set to oculus.
+
+If MHL wont get set as the active OpenXR runtime no matter how much you hit the button you need to update the registry manually:
+open cmd as admin, type regedit, enter.
+Go to: HKEY_LOCAL_MACHINE\SOFTWARE\Khronos\OpenXR\1
+Set ActiveRuntime Value: Create or modify a string value named ActiveRuntime. Set its value to: C:\Program Files\Meta Horizon\Support\oculus-runtime\oculus_openxr_64.json (Adjust the path if your Oculus app is installed elsewhere.)
+Now check SteamVR settings and you should be good
 
 Get our build of lidarview
 check the folder LidarView-5.2.0\bin\paraview-6.0\plugins\XRInterface.
 Make sure there are a bunch of jsons including "pv_openxr_actions.json" and "pv_openxr_binding_khr_simple_controller.json"
 If those are not present, find them somewhere (you can probably use the ones from an installation of Paraview).
 Check the folder LidarView-5.2.0\bin make sure there is a xerces-c-3.2.1.dll and libpdal_reader_e57.dll
-If those aren't there ask Simon
+If those aren't there ask Rowan (You might be able to find them yourself somewhere else on the machine)
 
 select at the top of LidarView tools>manage plugins, scroll all the way down and select XRInterface, load selected.
 in the new XRInterface section on the right, makesure OpenXR is the active runtime.
@@ -41,6 +49,4 @@ if you send to xr while the headset is asleep, it won't work. IF you take the he
 If you figure out how to stop the quest from going to sleep when you take it off I commend you (The "Bypass Proximity Sensor Check" option in OculusDebugTool.exe turns itself back off)
 
 The B button opens the menu while the A button is the trigger.
-
-NOTE: if the computer starts with the usb-c cable already plugged in, link might not work. If meta starts with the usb-c cable already plugged in, link might not work.
 
